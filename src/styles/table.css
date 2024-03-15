@@ -1,0 +1,39 @@
+.tableContainer {
+	justify-self: center;
+}
+
+.table {
+	width: 30rem;
+}
+
+.evenRow {
+	background-color: rgb(209, 208, 208);
+}
+
+img {
+	margin: 2px 5px;
+	cursor: pointer;
+}
+
+table, th, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+tr {
+	height: 25px;
+}
+
+.noColumn {
+	font-weight: bold;	
+	width: 2rem;
+}
+
+thead {
+	background-color: black;
+	color:white;
+}
+
+table {
+	margin-bottom: 2rem;
+}

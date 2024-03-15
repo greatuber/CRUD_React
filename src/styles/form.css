@@ -1,0 +1,50 @@
+
+.formParent {
+	display: grid;
+}
+
+.userForm {
+	display: flex;
+	flex-direction: column;
+	/* margin: 2rem 33rem; */
+}
+
+.userField {
+	margin-bottom: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 3px 5px;
+	width: 17rem;
+	align-self: center;
+}
+
+button {
+	width: 7rem;
+	height: 2em;
+	align-self: center; 
+	border: 1px solid black;
+	border-radius: 10px;
+	font-weight: bold;
+	margin: 0px 5px;
+	cursor: pointer;
+	margin-bottom: 2rem;
+}
+.formButton {
+	background-color: rgb(0, 131, 0);
+	color: rgb(255, 255, 255);
+}
+
+.clearButton {
+	background-color: rgb(16, 2, 216);
+	color: rgb(255, 255, 255);
+}
+
+.formButton:hover {
+	background-color: rgb(250, 250, 250);
+	color: rgb(0, 131, 0);
+}
+
+.clearButton:hover {
+	background-color: rgb(255, 255, 255); 
+	color: rgb(16, 2, 216);
+}
