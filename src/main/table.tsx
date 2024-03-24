@@ -3,6 +3,7 @@ import {memo} from 'react';
 const deleteIcon = require('./../icons/delete_icon.png');
 const editIcon = require('./../icons/edit_icon.png');
 
+
 interface UserData {
 	userId: number;
 	name: string;
@@ -17,8 +18,7 @@ interface TableProps {
 }
 
 function Table({ tableData, handleDelete, handleUpdate }: TableProps): JSX.Element {
-	console.log(tableData);
-
+	console.log("In table component...");
 	const deleteRow = (e:any) => {
 		window.confirm("Are you sure to delete!") && handleDelete(Number(e.target.id));
 	};
