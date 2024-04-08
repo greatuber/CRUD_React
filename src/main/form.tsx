@@ -53,6 +53,7 @@ function Form(): JSX.Element {
 
 	const handleClear = (): void => {
 		dispatch(clearUser());
+		setButtonName('Submit');
 	};
 
 	return (
