@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import './../styles/form.css';
 import Table from './table';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUserData, setTable, clearUser, deleteTable, updateTable } from '../redux/actions/userAction';
+import Notification from './notification';
 interface UserData {
 	userId: number;
 	name: string;
@@ -14,19 +15,22 @@ function Form(): JSX.Element {
 	const { user, usersTable } = useSelector((state: any) => state);
 	const dispatch = useDispatch();
 	const [buttonName, setButtonName] = useState('Submit');
-	console.log("In form component....");
+	const [notification, setNotification] = useState({ message: '', type: '' });
+
 	const handleSubmit = (): void => {
 		if (!user.name || !user.age || !user.phone) {
-			alert("Please enter valid data!");
+			setNotification({ message: 'Please enter valid data!', type: 'error' });
 			return;
 		}
 
 		if (buttonName === 'Submit') {
 			const userId = generateId();
 			dispatch(setTable({ userId, ...user }));
+			setNotification({ message: 'User Created Successfully', type: 'success' });
 		} else {
 			dispatch(updateTable(user));
 			setButtonName('Submit');
+			setNotification({ message: 'User Updated Successfully', type: 'success' });
 		}
 		handleClear();
 	};
@@ -43,6 +47,7 @@ function Form(): JSX.Element {
 
 	const handleDelete = useCallback((id: number): void => {
 		dispatch(deleteTable(id));
+		setNotification({ message: 'User Deleted Successfully', type: 'success' });
 	}, []);
 
 	const handleUpdate = useCallback((dataToUpdate: UserData): void => {
@@ -68,6 +73,7 @@ function Form(): JSX.Element {
 					<button className="clearButton" onClick={handleClear}>Clear</button>
 				</div>
 			</div>
+			<Notification notification={notification} setNotification={setNotification} />
 			<Table tableData={usersTable} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
 		</div>
 	);

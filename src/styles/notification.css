@@ -1,0 +1,27 @@
+.notification {
+	position: fixed;
+	bottom: 35px;
+	background-color: #f5f4f4;
+	border: 1px solid #ccc;
+	padding: 5px 100px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transition: bottom 0.4s linear;
+	justify-self: center;
+}
+
+.notification.success {
+	color: green;
+}
+
+.notification.error {
+	color: red;
+}
+
+.notification h2 {
+	margin: 0;
+}
+
+.notification.hidden {
+	bottom: -50px;
+}
